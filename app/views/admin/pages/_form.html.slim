@@ -1,0 +1,19 @@
+= simple_form_for(['admin', @item]) do |f|
+  == render 'fae/shared/form_header', header: @klass_name, f: f, item: @item, languages: true
+
+  main.content
+    -# TODO auto slug not working for multilanguage forms
+    = fae_input f, :title_en
+    = fae_input f, :title_es
+    = fae_input f, :title_ca
+    = fae_input f, :slug_en
+    = fae_input f, :slug_es
+    = fae_input f, :slug_ca
+    = fae_input f, :body_en, html: true
+    = fae_input f, :body_es, html: true
+    = fae_input f, :body_ca, html: true
+
+    = fae_image_form f, :image, show_alt: true
+
+    = fae_input f, :active
+    = fae_input f, :in_menu

@@ -1,0 +1,17 @@
+#videos
+  .container
+    .header
+      %h1= t('home.videos.title')
+    %nav
+      .nav.justify-content-center{ :role => 'tablist' }
+        - @video_categories.each_with_index do |category, index|
+          =link_to t("home.videos.categories.#{category}"), "#nav-#{category}", :class => ['nav-item', 'nav-link', ('active' if index == 0)], :id => "nav-#{category}-tab", :data => { :toggle => 'tab' }, :role => 'tab', :aria => { :controls => 'tab', :selected => index == 0 }
+    .tab-content
+      - @video_categories.each_with_index do |category, index|
+        .tab-pane.fade{ :id => "nav-#{category}", :class => ([:show, :active] if index == 0), :role => 'tabpanel', :aria => { :labelledby => "nav-#{category}-tab"} }
+          .row
+            - @videos.where(category: category).each do |video|
+              .col-md-auto
+                = render "videos/video_card", video: video
+          .text-center
+            = link_to t('videos.show_all'), videos_path(category), :class => %w(btn btn-primary)

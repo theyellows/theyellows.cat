@@ -1,0 +1,21 @@
+%footer
+  .container
+    .row
+      .col-md-6
+        %h2= t('footer.follow')
+        %nav.nav.social
+          -if @footer.try(:twitter_link).present?
+            = link_to image_tag('home/TWITTER.png', alt: "Twitter"), @footer.try(:twitter_link).content, class: %w(nav-link nav-item), target: "blank"
+          -if @footer.facebook_link.present?
+            = link_to image_tag('home/FACE.png', alt: "Facebook"), @footer.try(:facebook_link).content, class: %w(nav-link nav-item), target: "blank"
+      .about-us.col-md-6.ml-md-auto
+        %h2= t('footer.about')
+        - if @footer.about_text.present?
+          %p= @footer.about_text.content
+    .row
+      .col
+        %p= "© #{Date.current.year} #{t('title')}"
+
+    / Scroll to Top Button
+    %a.scroll-to-top.rounded.js-scroll-trigger{:href => "#page-top"}
+      %i.fa.fa-angle-up

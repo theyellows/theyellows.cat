@@ -1,0 +1,179 @@
+#home {
+  .container, .container-fluid {
+    .header {
+      padding-top: 70px;
+      margin-bottom: 35px;
+    }
+  }
+
+}
+
+#hero {
+  // to use css background layers with solid colors, we need to use linear-gradients
+  background:
+          linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), // darkening layer (normal blend mode)
+          linear-gradient(#9e61a4, #9e61a4), // color layer (multiply blend mode)
+          image-url("home/hero.jpg") center; // background image
+  background-blend-mode: normal, color;
+  background-size: cover;
+
+  color: $whiteness;
+
+  font-size: 1.15em;
+  text-align: center;
+
+  .container {
+    height: 780px;
+    max-width: 437px;
+  }
+
+  h1 {
+    color: $secondary;
+  }
+}
+
+.modules > div:nth-child(even) {
+  background: #f3f3f3;
+}
+
+#recomendations {
+  padding-bottom: 80px;
+
+  .carousel {
+    .carousel-item {
+      height: 365px;
+      div {
+        max-width: 555px;
+        margin: 0 auto;
+        text-align: center;
+        h2 {
+          font-size: 18px;
+          font-family: $font-family-sans-serif;
+          margin-bottom: 15px;
+        }
+        img {
+          width: 115px;
+          height: 115px;
+          border: 2px solid $secondary;
+          border-radius: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .carousel-control-prev {
+      justify-content: flex-end;
+    }
+
+    .carousel-control-next {
+      justify-content: flex-start;
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background: image-url('home/ARROW.png');
+      background-size: 67.5px 67.5px;
+      width: 67.5px;
+      height: 67.5px;
+      margin-top: -80px;
+    }
+
+    .carousel-control-next-icon {
+      transform: scaleX(-1);
+    }
+
+    .carousel-indicators li {
+      background: none;
+      border: 2px solid $darkness;
+      border-radius: 100%;
+
+      &.active {
+        background: $darkness;
+      }
+    }
+  }
+}
+
+#videos {
+  min-height: 600px;
+  padding-bottom: 76px - $grid-gutter-width;
+
+  .container {
+    @include media-breakpoint-up(xs) {
+      width: 329px;
+    }
+
+    @include media-breakpoint-up(md) {
+      width: 658px;
+    }
+    @include media-breakpoint-up(xl) {
+      width: 987px;
+    }
+  }
+
+  .row {
+    & > div {
+      width: 305px + $grid-gutter-width;
+      overflow: hidden;
+      margin-bottom: $grid-gutter-width;
+    }
+  }
+
+  nav {
+    .nav-link {
+      color: $darkness;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin: (-20px - 8px) 29px (30px - 8px);
+      letter-spacing: 1px;
+      &.active, &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#partners {
+  padding-bottom: 25px;
+
+  .container {
+    @include media-breakpoint-up(lg) {
+      max-width: 750px;
+    }
+  }
+
+  .partner {
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    img {
+      height: 50px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#videos {
+  padding-bottom: 70px;
+
+  // .video {
+  //   @include make-col-ready;
+  //
+  //   @include media-breakpoint-up(md) {
+  //     @include make-col(4);
+  //   }
+  // }
+
+  .container {
+    // padding: 0 percentage(95/1140);
+
+    @include media-breakpoint-only(md) {
+      padding: 0;
+    }
+  }
+
+  .row {
+    margin-bottom: 50px - $grid-gutter-width;
+  }
+}

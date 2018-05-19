@@ -1,0 +1,9 @@
+= simple_form_for @item, url: fae.update_content_block_path(slug: @item.slug), method: :put do |f|
+  == render 'fae/shared/form_header', header: @klass_name, f: f, item: @item, languages: true
+
+  main.content
+    = fae_content_form f, :about_text_en
+    = fae_content_form f, :about_text_es
+    = fae_content_form f, :about_text_ca
+    = fae_content_form f, :twitter_link, input_options: { as: :url }
+    = fae_content_form f, :facebook_link, input_options: { as: :url }

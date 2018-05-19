@@ -1,0 +1,8 @@
+- content_for :title, @page.title
+
+.container.page
+  %h1= @page.title
+- if @page.image.present? && @page.image.asset.present?
+  = image_tag @page.image.asset.url, :alt => @page.title, :class => 'hero-image'
+.container.page-body
+  = @page.body.html_safe

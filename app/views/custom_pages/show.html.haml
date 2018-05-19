@@ -1,0 +1,11 @@
+- content_for :title, @page.localized_title.content
+#custom-page{ class: @page.slug }
+  .header.container
+    %h1= @page.localized_title.content
+  .page-body.container
+    - if @page_content.present?
+      = @page_content.html_safe
+  - if @page.respond_to?(:footer) && @page.footer.present? && @page.footer.content.present?
+    .container
+      %footer
+        = @page.footer.content.html_safe

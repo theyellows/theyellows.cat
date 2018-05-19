@@ -1,0 +1,7 @@
+%li.page-item{ :class => ('disabled' if current_page.last?) }
+  - if current_page.last?
+    .page-link.next
+      %span.sr-only= t('views.pagination.next').html_safe
+  - else
+    = link_to url, rel: 'next', remote: remote, class: %w(page-link next) do
+      %span.sr-only= t('views.pagination.next').html_safe

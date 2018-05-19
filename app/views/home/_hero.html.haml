@@ -1,0 +1,18 @@
+%header.masthead.d-flex
+  .container.text-center.my-auto
+    - if @featured_videos.any?
+      - @featured_videos.each do |video|
+        - if video.url.present?
+          .videoWrapper{:style => "margin-bottom: 40px"}
+            = embed_video video.url
+        - if video.video.present?
+          .videoWrapper{:style => "margin-bottom: 40px"}
+            = video_tag(video.video.asset_url,  size: "560x315", controls: true)
+    - else
+      .videoWrapper
+        - if @videos.last.url.present?
+          = embed_video @videos.last.url
+        - if @videos.last.video.present?
+          = video_tag(@videos.last.video.asset_url,  size: "560x315", controls: true)
+    %a.mt-5.btn.btn-secondary.btn-xl.js-scroll-trigger{:href => "#videos"} Find Out More
+  .overlay

@@ -1,0 +1,7 @@
+%li.nav-item.dropdown
+  %a#languagesDropdown.nav-link.dropdown-toggle{ :href => '#', :role => 'button', :data => { :toggle => 'dropdown' }, :aria => { :haspopup => true, :expanded => false } }
+    = @current_locale.upcase
+  %ul.dropdown-menu{ :aria => { :labelledby => 'languagesDropdown' } }
+    - @locales.each do |locale_code, locale_name|
+      %li
+        = link_to locale_name, language_route(locale_code), :class => ['dropdown-item', ('active' if locale_code.to_s == @current_locale)], :role => 'menuitem'

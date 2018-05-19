@@ -1,0 +1,32 @@
+en:
+  routes:
+    videos: videos
+    page: page
+  title: The Yellows
+  home:
+    hero:
+      readmore: Read More
+    title: Home
+    videos:
+      title: Videos
+      categories:
+        facebook: Facebook
+        interviews: Interviews
+    recomendations: Recommendations
+  videos:
+    title: Videos
+    show_all: Show All
+    back: Back
+    other:
+      title: Other Videos
+    own:
+      title: Own Videos
+  footer:
+    contact:
+      title: Contact Us
+    follow: Follow Us
+    about: About Us
+  views:
+    pagination:
+      next: Next
+      previous: Previous

@@ -1,0 +1,41 @@
+// Colors
+$primary: #dcdd00;
+$secondary: #178CE3;
+
+$darkness: #000;
+$whiteness: #fff;
+
+$border-color: #979797;
+$light-border: #c6c6c6;
+
+$headings-color: $darkness;
+
+// Fonts
+$font-family-sans-serif: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$headings-font-family: 'Montserrat', $font-family-sans-serif;
+$headings-font-weight: bold;
+$h1-font-size: 44px;
+
+// Grid
+$grid-gutter-width: 24px;
+
+// Navbar
+$navbar-nav-link-padding-x: 23px;
+$navbar-padding-x: 0;
+$navbar-padding-y: 33px;
+$navbar-light-color: #c2c2c2;
+$navbar-light-hover-color: darken($navbar-light-color, 25%);
+$navbar-light-active-color: $darkness;
+
+// Buttons
+$btn-border-radius: 500px; // applying a very large border radius gives a capsule shape
+$btn-padding-y: 11px;
+$btn-font-weight: normal;
+
+// Carousel
+$carousel-control-width: 16%;
+$carousel-indicator-active-bg: $darkness;
+$carousel-indicator-width: 14px;
+$carousel-indicator-height: 14px;
+$carousel-indicator-spacer: 16px / 2;

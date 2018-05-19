@@ -1,0 +1,18 @@
+#home
+  = render "hero"
+  .modules
+    - if @videos.present?
+      = render "videos"
+  / About
+  %section#about.content-section.bg-light
+    .container.text-center
+      .row
+        .col-lg-10.mx-auto
+          - if @home.hero_title.content.present?
+            %h2 Welcome to the news broadcasting portal TheYellows!
+          - if @home.hero_text.content.present?
+            %p.lead.mb-5
+              = @home.hero_text.content
+          - if @read_more_page.present?
+            .text-center
+              = link_to t('home.hero.readmore'), page_path(@read_more_page.slug), :class => %w(btn btn-primary)

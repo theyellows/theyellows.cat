@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    / Global site tag (gtag.js) - Google Analytics
+    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=UA-117522741-1"}
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-117522741-1');
+    / Global site tag (gtag.js) - Google Analytics
+    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=UA-117522741-1"}
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-117522741-1');
+    %title= (yield(:title) + " — " unless yield(:title).blank?).to_s + t('title')
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "The purpose of this site is to publish videos about the Catalan independence movement and videos of complain of the intolerance and violence of Spain with Catalonia.", :name => "description"}/
+    %meta{:content => "The Yellows", :name => "author"}/
+    %title The Yellows
+    = csrf_meta_tags
+    = favicon_link_tag 'favicon.ico'
+    %link{:href => "https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700", :rel => "stylesheet"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body#page_top
+    #header
+      = render partial: "layouts/header"
+    = yield
+    = render partial: "layouts/footer"

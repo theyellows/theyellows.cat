@@ -1,0 +1,35 @@
+== render 'fae/shared/index_header', title: @klass_humanized.pluralize.titleize
+
+main.content
+  table.js-sort-row
+    thead
+      tr
+        th.th-sortable-handle
+        th Name
+        th.-action-wide Modified
+        th.-action-wide Category
+        th.-action-wide data-sorter="false" published_at
+        th.-action-wide data-sorter="false" Featured home
+        th.-action-wide data-sorter="false" Availabe En
+        th.-action-wide data-sorter="false" Availabe Es
+        th.-action-wide data-sorter="false" Availabe Ca
+        th.-action-wide data-sorter="false" Active
+        th.-action data-sorter="false"
+
+    tbody
+      - if @items.present?
+        - @items.each do |item|
+          tr id=fae_sort_id(item)
+            td.sortable-handle: i.icon-sort
+            td = link_to item.fae_display_field, edit_admin_video_path(item)
+            td = fae_date_format item.updated_at
+            td = item.category
+            td = fae_date_format item.published_at
+            td = fae_toggle item, :featured_home
+            td = fae_toggle item, :available_en
+            td = fae_toggle item, :available_es
+            td = fae_toggle item, :available_ca
+            td = fae_toggle item, :active
+            td = fae_delete_button item
+      - else
+        tr: td colspan="5" No items found

@@ -1,0 +1,8 @@
+.video
+  = link_to video_path(category: video.category, slug: video.slug), :class => 'video-card' do
+    - if video.hero_image.present? && video.hero_image.asset.present?
+      = image_tag video.hero_image.asset.url, :alt => video.title, :class => 'hero-image'
+    - else
+      .hero-image
+    .info
+      %h2= video.title

@@ -1,0 +1,77 @@
+//= require trumbowyg
+//= require trumbowyg.upload
+
+jQuery.trumbowyg.svgPath = "<%= image_path('fae/icons/trumbowyg.svg') %>";
+
+Fae.form.text.initHTML = function() {
+    options = {
+        btnsDef: {
+            image: {
+                dropdown: ['insertImage', 'upload', 'base64', 'noEmbed'],
+                ico: 'insertImage'
+            }
+        },
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'],
+            ['p', 'h2'],
+            ['strong', 'em'],
+            ['link'],
+            ['image'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeFormat'],
+            ['fullscreen']
+        ],
+        autogrow: true,
+        plugins: {
+            upload: {
+                serverPath: '/admin/html_embedded_image',
+                fileFieldName: 'image'
+            }
+        },
+        removeformatPasted: true,
+        resetCss: true
+    };
+
+    $('.js-html-editor').trumbowyg(options);
+
+    $.extend(true, $.trumbowyg, {
+        plugins: {
+            customButtons: {
+                init: function (trumbowyg) {
+                    function customTagClass(tag, classes) {
+                        trumbowyg.saveRange();
+                        var text = trumbowyg.getRangeText();
+                        trumbowyg.execCmd('insertHTML', '<' + tag + ' class="' + classes + '">' + text + '</' + tag + '>');
+                    }
+
+                    trumbowyg.addBtnDef('block', {
+                        fn: function() {
+                            trumbowyg.saveRange();
+                            var text = trumbowyg.getRangeText();
+                            trumbowyg.execCmd('insertHTML', '<div class="block-container"><div class="block">' + text + '</div></div>');
+                        },
+                        hasIcon: false,
+                        title: 'Block'
+                    })
+
+                    trumbowyg.addBtnDef('lead', {
+                        fn: function () {
+                            customTagClass('p', 'lead');
+                        },
+                        hasIcon: false,
+                        title: 'Lead'
+                    });
+                }
+            }
+        }
+    })
+
+    how_to_collaborate = Object.create(options);
+    how_to_collaborate.btns[2] = ['p', 'block', 'h2', 'lead', 'h3'];
+    how_to_collaborate.semantic = false
+
+    $('.js-html-editor-howtocollaborate').trumbowyg(how_to_collaborate);
+};

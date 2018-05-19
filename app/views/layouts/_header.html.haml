@@ -1,0 +1,33 @@
+.container
+  %nav.navbar.navbar-expand-xl.navbar-light
+    = link_to root_path, :class => 'navbar-brand' do
+      - if @option.try(:logo).present? and @option.try(:logo).asset.present?
+        = image_tag(@option.logo.asset.url, alt: @option.logo.alt, class: 'image-logo')
+      - else
+        = t('title')
+    %button.navbar-toggler{:type => 'button', :data => {:toggle => 'collapse', :target => '#navbarNav'}, :aria => { :controls => 'navbarNav', :expanded => false, :label => "Toggle navigation" } }
+      %span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item{ :class => ('active' if controller_name == 'home') }
+          = link_to root_path, :class => 'nav-link' do
+            = t('home.title')
+        - if @has_own_videos
+          %li.nav-item{ :class => ('active' if controller_name == 'videos' && params[:category] == "own") }
+            = link_to videos_path(:own), :class => 'nav-link' do
+              = t('videos.own.title')
+              - if controller_name == 'videos' && params[:category] == "own"
+                %span.sr-only (current)
+        - if @has_other_videos
+          %li.nav-item{ :class => ('active' if controller_name == 'videos' && params[:category] == "other") }
+            = link_to videos_path(:other), :class => 'nav-link' do
+              = t('videos.other.title')
+              - if controller_name == 'videos' && params[:category] == "other"
+                %span.sr-only (current)
+        - @pages.each do |page|
+          %li.nav-item{ :class => ('active' if current_page? page_route(page) )}
+            = link_to page_route(page), :class => 'nav-link' do
+              = page.title
+              - if current_page? page_route(page)
+                %span.sr-only (current)
+        = render partial: 'layouts/languages'

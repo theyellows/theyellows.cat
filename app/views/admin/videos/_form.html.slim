@@ -1,0 +1,25 @@
+= simple_form_for(['admin', @item]) do |f|
+  == render 'fae/shared/form_header', header: @klass_name, f: f, item: @item, languages: true
+
+  main.content
+    -# TODO auto slug not working for multilanguage forms
+    = fae_input f, :title_en
+    = fae_input f, :title_es
+    = fae_input f, :title_ca
+    = fae_input f, :slug_en
+    = fae_input f, :slug_es
+    = fae_input f, :slug_ca
+    = fae_pulldown f, :category, collection: Video.categories.keys.map { |key| [key.capitalize, key] }
+    = fae_input f, :url
+    = fae_datepicker f, :published_at, input_html: { value: f.object.published_at || Date.current }
+    = fae_input f, :body_en, html: true
+    = fae_input f, :body_ca, html: true
+    = fae_input f, :body_es, html: true
+    = fae_input f, :active
+    = fae_input f, :available_en
+    = fae_input f, :available_es
+    = fae_input f, :available_ca
+    = fae_input f, :featured_home
+
+    = fae_image_form f, :hero_image, show_alt: false
+    = fae_file_form f, :video

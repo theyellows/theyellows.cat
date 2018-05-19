@@ -1,0 +1,16 @@
+- content_for :title, @video.title
+.container.video-detail
+  = link_to videos_path, :class => %w(btn btn-primary btn-back) do
+    = image_tag 'back.png', :class => 'icon'
+    = t('news.back')
+  %h1= @video.title
+  .video-body
+    - if @video.hero_image.present? && @video.hero_image.asset.present?
+      = image_tag @video.hero_image.asset.url, :alt => @video.title, :class => 'hero-image'
+    = @video.body.html_safe
+    - if @video.url.present?
+      .videoWrapper
+        = embed_video @video.url
+    - if @video.video.present?
+      .videoWrapper
+        = video_tag(@video.video.asset_url,  size: "560x315", controls: true)

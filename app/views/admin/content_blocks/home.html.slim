@@ -1,0 +1,11 @@
+= simple_form_for @item, url: fae.update_content_block_path(slug: @item.slug), method: :put do |f|
+  == render 'fae/shared/form_header', header: @klass_name, f: f, item: @item, languages: true
+
+  main.content
+    = fae_content_form f, :hero_title_en
+    = fae_content_form f, :hero_title_es
+    = fae_content_form f, :hero_title_ca
+    = fae_content_form f, :hero_text_en
+    = fae_content_form f, :hero_text_es
+    = fae_content_form f, :hero_text_ca
+    = fae_content_form f, :hero_link, input_options: { collection: [['None', nil]] + @pages.map { |page| [page.title, page.slug] }}

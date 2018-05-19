@@ -1,0 +1,7 @@
+- content_for :title, t("videos.#{params[:category]}.title")
+.container.videos
+  %h1= t("videos.#{params[:category]}.title")
+  .row
+    - @videos.each do |video|
+      = render "video_card", video: video
+  = paginate @videos
