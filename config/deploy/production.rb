@@ -12,7 +12,7 @@ set :stage, 'production'
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '172.104.228.66', :user => 'oidp', :port => '22', :roles =>  %w{app web db}
+server '', :user => '', :port => '22', :roles =>  %w{app web db}
 set :deploy_to, "/var/www/oidp/cms"  # directory for the project in the server, in this case 'var/www/customers'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.0'

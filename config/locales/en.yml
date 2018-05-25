@@ -6,24 +6,22 @@ en:
   home:
     hero:
       readmore: Read More
+      find_out_more: Find out more
     title: Home
     videos:
-      title: Videos
       categories:
-        facebook: Facebook
-        interviews: Interviews
-    recomendations: Recommendations
+        other: Other
+        own: Own
+      show_all: Show All
+      title: Videos
   videos:
     title: Videos
-    show_all: Show All
     back: Back
     other:
       title: Other Videos
     own:
       title: Own Videos
   footer:
-    contact:
-      title: Contact Us
     follow: Follow Us
     about: About Us
   views:

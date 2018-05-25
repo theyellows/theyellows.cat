@@ -9,9 +9,10 @@
       .row
         .col-lg-10.mx-auto
           - if @home.hero_title.content.present?
-            %h2 Welcome to the news broadcasting portal TheYellows!
+            %h2
+              = @home.hero_title.content
           - if @home.hero_text.content.present?
-            %p.lead.mb-5
+            %p.lead
               = @home.hero_text.content
           - if @read_more_page.present?
             .text-center

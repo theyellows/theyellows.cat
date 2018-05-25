@@ -17,20 +17,6 @@
   }
 }
 
-#how-to-collaborate .trumbowyg-editor.trumbowyg-reset-css {
-  p.lead {
-    text-align: center;
-    font-size: 1.25em !important;
-    padding: 0 2em;
-    font-style: italic;
-  }
-
-  h3 {
-    border-bottom: 1px solid #000;
-    padding-bottom: 10px !important;
-  }
-
-  div.block-container > div.block {
-    background-color: #eccf47 !important;
-  }
+p.lead {
+  margin-bottom: 0;
 }

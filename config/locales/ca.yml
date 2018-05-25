@@ -5,24 +5,26 @@ ca:
   title: The Yellows
   home:
     hero:
-      readmore: Read More
+      readmore: Llegir més
+      find_out_more: Descobrir més
     title: Home
     videos:
-      title: Videos
       categories:
-        facebook: Facebook
-        interviews: Interviews
-    recomendations: Recommendations
+        other: Altres
+        own: Propis
+      show_all: Mostrar tots
+      title: Vídeos
   videos:
     title: Videos
-    show_all: Show All
-    back: Back
+    back: Enrere
+    other:
+      title: Altres Vídeos
+    own:
+      title: Vídeos propis
   footer:
-    contact:
-      title: Contact Us
-    follow: Follow Us
-    about: About Us
+    follow: Segueix-nos
+    about: Sobre nosaltres
   views:
     pagination:
-      next: Next
-      previous: Previous
+      next: Següent
+      previous: Anterior

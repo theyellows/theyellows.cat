@@ -18,5 +18,6 @@ class HomePage < Fae::StaticPage
   end
 
   fae_translate :hero_text
+  fae_translate :hero_title
 
 end

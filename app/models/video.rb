@@ -3,8 +3,15 @@ class Video < ApplicationRecord
 
   enum category: [ :own, :other ]
 
-  validates :url, presence: true
-  validates :url, format: { with: /(facebook\.com\/[^\/]+\/videos\/[0-9]*)|(youtu((\.be)|(be\.com))\/(watch\?v=)?[A-z0-9\-_]+)/ }
+  validate :url_or_file_present
+  validates :url, format: { with: /(facebook\.com\/[^\/]+\/videos\/[0-9]*)|(youtu((\.be)|(be\.com))\/(watch\?v=)?[A-z0-9\-_]+)/ }, :if => lambda{ |object| object.url.present? }
+  validates :published_at, presence: true
+
+  def url_or_file_present
+    if url.blank? || video.blank?
+      errors.add(:url, "Specify an URL or add video file")
+    end
+  end
 
   def fae_display_field
     title
@@ -21,8 +28,6 @@ class Video < ApplicationRecord
   Fae.languages.keys.each do |locale|
     validates "slug_#{locale}", Fae.validation_helpers.slug
   end
-
-  validates :published_at, presence: true
 
   fae_translate :title, :slug, :body
 

@@ -14,5 +14,6 @@ class FooterPage < Fae::StaticPage
     }
   end
 
+  fae_translate :about_text
 
 end

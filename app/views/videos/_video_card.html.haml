@@ -6,3 +6,4 @@
       .hero-image
     .info
       %h2= video.title
+      = truncate(video.body, :length => 100, :omission => "" , :escape => false)
