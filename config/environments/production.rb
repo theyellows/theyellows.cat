@@ -1,5 +1,5 @@
 Rails.application.configure do
-  DOMAIN = "theyellows.cat"
+  DOMAIN = "188.166.99.96"
   DOMAIN_URL = "http://#{DOMAIN}"
 
   # Settings specified here will take precedence over those in config/application.rb.
