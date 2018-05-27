@@ -12,8 +12,8 @@ set :stage, 'production'
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '', :user => '', :port => '22', :roles =>  %w{app web db}
-set :deploy_to, ""  # directory for the project in the server, in this case 'var/www/customers'
+server '188.166.99.96', :user => 'tyellows', :port => '534', :roles =>  %w{app web db}
+set :deploy_to, "/var/www/theyellows/cms"  # directory for the project in the server, in this case 'var/www/customers'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
