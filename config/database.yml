@@ -22,7 +22,8 @@ integration:
 production:
   encoding: utf8
   host: localhost
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
