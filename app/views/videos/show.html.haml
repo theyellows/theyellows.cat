@@ -8,9 +8,10 @@
     - if @video.hero_image.present? && @video.hero_image.asset.present?
       = image_tag @video.hero_image.asset.url, :alt => @video.title, :class => 'hero-image'
     = @video.body.html_safe
-    - if @video.url.present?
-      .videoWrapper
-        = embed_video @video.url
-    - if @video.video.present?
+    - if @video.video.present? && @video.video.asset_url.present?
       .videoWrapper
         = video_tag(@video.video.asset_url,  size: "560x315", controls: true)
+    - else
+      - if @video.url.present?
+        .videoWrapper
+          = embed_video @video.url
