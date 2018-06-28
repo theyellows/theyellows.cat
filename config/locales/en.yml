@@ -12,6 +12,7 @@ en:
       categories:
         other: Other
         own: Own
+      no_videos: There are no videos of this category now.
       show_all: Show All
       title: Videos
   videos:

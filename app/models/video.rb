@@ -3,8 +3,8 @@ class Video < ApplicationRecord
 
   enum category: [ :own, :other ]
 
-  validate :url_or_file_present
   validates :url, format: { with: /(facebook\.com\/[^\/]+\/videos\/[0-9]*)|(youtu((\.be)|(be\.com))\/(watch\?v=)?[A-z0-9\-_]+)/ }, :if => lambda{ |object| object.url.present? }
+  validate :url_or_file_present
   validates :published_at, presence: true
 
   def url_or_file_present

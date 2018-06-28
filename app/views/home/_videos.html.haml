@@ -10,8 +10,14 @@
       - @video_categories.each_with_index do |category, index|
         .tab-pane.fade{ :id => "nav-#{category}", :class => ([:show, :active] if index == 0), :role => 'tabpanel', :aria => { :labelledby => "nav-#{category}-tab"} }
           .row
-            - @videos.where(category: category).each do |video|
-              .col-md-auto
-                = render "videos/video_card", video: video
+            - if @videos.where(category: category).present?
+              - @videos.where(category: category).each do |video|
+                .col-md-auto
+                  = render "videos/video_card", video: video
+            - else
+              .text-center
+                %p
+                  = t('home.videos.no_videos')
           .text-center
-            = link_to t('home.videos.show_all'), videos_path(category), :class => %w(btn btn-primary)
+            -if category == "own" || (category == "other" && @has_other_videos )
+              = link_to t('home.videos.show_all'), videos_path(category), :class => %w(btn btn-primary)

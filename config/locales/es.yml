@@ -12,6 +12,7 @@ es:
       categories:
         other: Otros
         own: Propios
+      no_videos: No hay videos para esta categoria.
       show_all: Mostrar todos
       title: Videos
   videos:

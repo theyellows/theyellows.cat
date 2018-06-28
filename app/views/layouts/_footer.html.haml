@@ -8,6 +8,8 @@
             = link_to image_tag('home/TWITTER.png', alt: "Twitter"), @footer.try(:twitter_link).content, class: %w(nav-link nav-item), target: "blank"
           -if @footer.facebook_link.present?
             = link_to image_tag('home/FACE.png', alt: "Facebook"), @footer.try(:facebook_link).content, class: %w(nav-link nav-item), target: "blank"
+          -if @footer.youtube_link.present?
+            = link_to image_tag('home/YOUTUBE.png', alt: "Youtube"), @footer.try(:youtube_link).content, class: %w(nav-link nav-item), target: "blank"
       .about-us.col-md-6.ml-md-auto
         %h2= t('footer.about')
         - if @footer.about_text.present?

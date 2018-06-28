@@ -11,6 +11,7 @@ class FooterPage < Fae::StaticPage
       },
       twitter_link: { type: Fae::TextField },
       facebook_link: { type: Fae::TextField },
+      youtube_link: { type: Fae::TextField },
     }
   end
 
