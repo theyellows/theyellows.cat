@@ -9,14 +9,6 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-117522741-1');
-    / Global site tag (gtag.js) - Google Analytics
-    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=UA-117522741-1"}
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-117522741-1');
     %title= (yield(:title) + " — " unless yield(:title).blank?).to_s + t('title')
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
